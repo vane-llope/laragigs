@@ -23,12 +23,13 @@ Route::get('/', function () {
 });
 //--------------------------------------------------------------
 
-Route::get('search/{id}',function($id){
- $listing = Listing::find($id);
- if($listing != [])  $listing = [$listing];
- return view('Listings',[
+Route::get('search/{listing}',function(Listing $listing){
+ /*$listing = Listing::find($id);
+ if($listing == null) abort('404');
+ if($listing != [])  $listing = [$listing];*/
+ return view('Listing',[
     'heading'=>'Latest Listings',
-    'listings'=> $listing
+    'listings'=> [$listing]
 ]);
 });
 //--------------------------------------------------------------

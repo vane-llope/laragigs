@@ -1,15 +1,18 @@
-<h1>Loops Like Foreach & If Statments</h1>
-<h2>{{$heading}}</h2>
+@extends('layout')
+@section('content')
 
-<h2><a href="/">Show All Listings</a></h2>
+@include('partials._hero')
+@include('partials._search')
 
      @if(count($listings)==0) 
      <p>No Listing</p>
    @endif
 
    @if(count($listings) !=0)
+     <div class="row">
    @foreach ($listings as $listing)
-      <a href="/search/{{$listing['id']}}"><h2>{{$listing['id']}} : {{$listing['title']}}</h2></a> 
-       <p>{{$listing['description']}}</p>
+   <x-listing-card :listing=$listing /> 
    @endforeach
+ </div>
    @endif
+   @endsection
