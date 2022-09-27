@@ -12,13 +12,12 @@
        <img  class="w-50" src="/images/Abstract-blue-wave-on-transparent-background-PNG.png" alt="">  
 
    <h2 >{{$listing['title']}}</h2>
-       <p>{{$listing['tags']}}</p>
        <p>{{$listing['company']}}</p>
        <p>{{$listing['email']}}</p>
        <p>{{$listing['website']}}</p>
        <p>{{$listing['location']}}</p>
        <p>{{$listing['description']}}</p>
-       
+       <x-listing-tags :tagsCsv="$listing['tags']" />
       </div>
    </x-card>
    @endforeach
