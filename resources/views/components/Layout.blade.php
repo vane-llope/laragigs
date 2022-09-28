@@ -13,8 +13,13 @@
 <body>
     {{--View Output--}}
     <div class="container mt-2">
-    <h1>the layout</h1>
+        <div class="d-flex justify-content-between">
+          <a href="/" class="text-dark nav-link"><h1> Lara<span class="text-danger">Gigs</span> </h1></a>  
+   </div>
+   <x-flash-message/>
     {{$slot}}
     </div>
+
+    
 </body>
 </html>
