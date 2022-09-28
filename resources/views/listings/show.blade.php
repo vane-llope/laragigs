@@ -1,4 +1,4 @@
-@extends('layout')
+<x-layout>
 @section('content')
 <p><a href="/">Back</a></p>
      @if(count($listings)==0) 
@@ -22,4 +22,4 @@
    </x-card>
    @endforeach
    @endif
-   @endsection
+</x-layout>

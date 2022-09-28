@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Listing extends Model
 {
     use HasFactory;
+    public function scopeFilter($quary , array $filters){
+         if($filters['tag'] ?? false){
+            $quary->where('tags','like','%'.request('tag').'%');
+        }
+    }
 }

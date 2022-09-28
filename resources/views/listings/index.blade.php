@@ -1,4 +1,4 @@
-@extends('layout')
+<x-layout>
 @section('content')
 
 @include('partials._hero')
@@ -15,4 +15,4 @@
    @endforeach
  </div>
    @endif
-   @endsection
+</x-layout>

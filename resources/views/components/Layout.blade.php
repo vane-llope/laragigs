@@ -14,7 +14,7 @@
     {{--View Output--}}
     <div class="container mt-2">
     <h1>the layout</h1>
-    @yield('content')
+    {{$slot}}
     </div>
 </body>
 </html>

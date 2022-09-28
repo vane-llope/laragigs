@@ -18,3 +18,11 @@ use App\Models\Listing;
 
 Route::get('/', [ListingController::class,'index']);
 Route::get('search/{listing}',[ListingController::class,'show']);
+
+//index -> show all listings
+//show -> show single listing
+//create -> show form to create new listing
+//store -> store new listing
+//edit -> show form to edit listing
+//update -> update listing
+//destroy -> delete listing
