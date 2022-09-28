@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -15,21 +16,5 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
-    return view('Listings',[
-        'heading'=>'Latest Listings',
-        'listings'=> Listing::all()
-    ]);
-});
-//--------------------------------------------------------------
-
-Route::get('search/{listing}',function(Listing $listing){
- /*$listing = Listing::find($id);
- if($listing == null) abort('404');
- if($listing != [])  $listing = [$listing];*/
- return view('Listing',[
-    'heading'=>'Latest Listings',
-    'listings'=> [$listing]
-]);
-});
-//--------------------------------------------------------------
+Route::get('/', [ListingController::class,'index']);
+Route::get('search/{listing}',[ListingController::class,'show']);
