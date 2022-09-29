@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use pagination;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -13,7 +14,8 @@ class ListingController extends Controller
     {
         // dd(request('tag'));
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
+            //'listings' => Listing::latest()->filter(request(['tag', 'search']))->simplePagination()
         ]);
     }
     //get and show single listimg

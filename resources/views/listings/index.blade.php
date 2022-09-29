@@ -15,4 +15,8 @@
    @endforeach
  </div>
    @endif
+   <div class="pagination row">
+      <li class="page-item"> {{$listings->links()}} </li>
+    
+   </div>
 </x-layout>
