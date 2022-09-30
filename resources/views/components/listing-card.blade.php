@@ -4,7 +4,8 @@
     <x-card>
      <div class="row">
        <div class="col-sm-4">
-        <img  class="w-100" src="../images/Abstract-blue-wave-on-transparent-background-PNG.png" alt="">  
+        <img  class="w-100"
+        src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/Abstract-blue-wave-on-transparent-background-PNG.png')}}" alt="" />
     </div>
     <div class="col-sm-8" >
  <a class="text-dark nav-link" href="/listings/{{$listing['id']}}"><h4>{{$listing['title']}}</h4></a> 

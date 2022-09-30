@@ -1,5 +1,5 @@
 <x-layout>
-    <form method="POST" action="/listings">
+    <form method="POST" action="/listings" enctype="multipart/form-data">
         @csrf
       <div class="form-floating mb-3">
         <input type="text" name="company" value="{{old('company')}}" class="form-control" id="floatingInput" >
@@ -52,7 +52,10 @@
       
         <div class="form-group my-4">
           <label for="exampleFormControlFile1">Choose Logo</label>
-          <input type="file" name="logo" value="{{old('logo')}}" class="form-control-file" id="exampleFormControlFile1">
+          <input type="file" accept="image/*"  name="logo" value="{{old('logo')}}" class="form-control-file" id="exampleFormControlFile1">
+          @error('logo')
+          <p class="text-danger">{{$message}}</p>
+      @enderror
         </div>
 
       <div class="form-floating">

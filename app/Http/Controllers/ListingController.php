@@ -32,19 +32,27 @@ class ListingController extends Controller
     }
 
     //store listing data
-    public function store()
-    {
-        //dd(Request()->all());
-        $formFields = Request()->validate([
+    public function store(Request $request) {
+        $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
             'location' => 'required',
             'website' => 'required',
             'email' => ['required', 'email'],
             'tags' => 'required',
-            'description' => 'required',
+            'description' => 'required'
         ]);
+
+        if($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $formFields['user_id'] = auth()->id();
+
         Listing::create($formFields);
-        return redirect('/')->with('message','Listing Created Successfully');
+
+        return redirect('/')->with('message', 'Listing created successfully!');
     }
+
+    
 }

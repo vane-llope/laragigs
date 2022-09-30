@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Listing extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','company','tags','location','website','description','email'];
+    protected $fillable = ['title','company','tags','location','website','description','email','logo'];
     public function scopeFilter($quary , array $filters){
          if($filters['tag'] ?? false){
             $quary->where('tags','like','%'.request('tag').'%');
